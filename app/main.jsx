@@ -4,6 +4,8 @@ import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
+import Products from './components/Products'
+
 import store from './store'
 import Jokes from './components/Jokes'
 import Login from './components/Login'
@@ -16,7 +18,7 @@ const ExampleApp = connect(
     <div>
       <nav>
         {user ? <WhoAmI/> : <Login/>}
-      </nav> 
+      </nav>
       {children}
     </div>
 )
