@@ -9,7 +9,7 @@ var Review = db.define('review', {
   },
   date: {
     type: Sequelize.DATE,
-    defaultValue: Date()
+    defaultValue: Sequelize.NOW
   },
   rating: {
     type: Sequelize.INTEGER,
