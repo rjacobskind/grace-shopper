@@ -1,12 +1,15 @@
 'use strict'
 
-import Sequelize from 'Sequelize'
-import db from 'APP/db'
+const Sequelize = require('Sequelize') 
+const db = require('APP/db')
 
 const Order = db.define('order', {
 	status: {
-		type: Sequelize.ENUM('Created', 'Processing', 'Cancelled', 'Completed'),
+		type: Sequelize.STRING,
 		allowNull: false,
+		validate: {
+			isIn: [['Created', 'Processing', 'Cancelled', 'Completed']]
+		}
 	},
 	address: {
 		type: Sequelize.TEXT,
@@ -15,3 +18,4 @@ const Order = db.define('order', {
 })
 
 module.exports = Order;
+
