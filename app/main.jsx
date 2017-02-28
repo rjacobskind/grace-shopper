@@ -16,7 +16,7 @@ const ExampleApp = connect(
     <div>
       <nav>
         {user ? <WhoAmI/> : <Login/>}
-      </nav> 
+      </nav>
       {children}
     </div>
 )
@@ -25,8 +25,8 @@ render (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={ExampleApp}>
-        <IndexRedirect to="/jokes" />
-        <Route path="/jokes" component={Jokes} />
+        <IndexRedirect to="/" />
+        <Route path="/login" component={Login} />
       </Route>
     </Router>
   </Provider>,

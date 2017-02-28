@@ -126,6 +126,11 @@ auth.post('/login/:strategy', (req, res, next) =>
   })(req, res, next)
 )
 
+// auth.post('/signup/:strategy', (req, res, next) =>
+//   User.create(req.body)
+//   .then(user => )
+// )
+
 auth.post('/logout', (req, res, next) => {
   req.logout()
   res.redirect('/api/auth/whoami')

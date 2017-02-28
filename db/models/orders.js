@@ -1,17 +1,20 @@
 'use strict'
 
-import Sequelize from 'Sequelize'
-import db from 'APP/db'
+const Sequelize = require('Sequelize')
+const db = require('APP/db')
 
 const Order = db.define('order', {
-	status: {
-		type: Sequelize.ENUM('Created', 'Processing', 'Cancelled', 'Completed'),
-		allowNull: false,
-	},
-	address: {
-		type: Sequelize.TEXT,
-		allowNull: false,
-	},
+    status: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            isIn: [['Created', 'Processing', 'Cancelled', 'Completed']]
+        }
+    },
+    address: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+    },
 })
 
 module.exports = Order;
