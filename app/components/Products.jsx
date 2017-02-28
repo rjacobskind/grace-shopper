@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 export default class Products extends Component {
+  constructor(props) {
+    super(props)
+  }
 
 
   // nextJoke = () =>
@@ -11,8 +14,8 @@ export default class Products extends Component {
 
   // answer = () =>
   //   this.setState({answered: true})
-
   render() {
+    console.log(this.props)
     return (
       <p>Hello world</p>
     )
