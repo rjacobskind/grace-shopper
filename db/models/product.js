@@ -1,7 +1,7 @@
 'use strict'
 
-import Sequelize from 'Sequelize'
-import db from 'APP/db'
+const Sequelize = require('Sequelize')
+const db = require('APP/db')
 
 const Product = db.define('product', {
 	name: {
@@ -22,7 +22,7 @@ const Product = db.define('product', {
 	},
 	category: {
 		type: Sequelize.ARRAY(Sequelize.STRING),
-		defaultValue: [],
+		defaultValue: [], // EI: could potentially create a new Category model, and associate with Product
 	},
 	inventoryAmount: {
 		type: Sequelize.INTEGER,

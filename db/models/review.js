@@ -1,7 +1,10 @@
+'use strict'
+
 const db = require('APP/db');
 const Sequelize = require('sequelize');
 
-var Review = db.define('review', {
+// EI: stay consistent with the ES6
+const Review = db.define('review', {
   content: {
     type: Sequelize.TEXT,
     len: [5, 500],

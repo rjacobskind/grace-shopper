@@ -1,5 +1,7 @@
 'use strict'
 
+// EI: this isn't being run when we run npm test...
+
 const db = require('APP/db');
 const User = require('./db/models/user');
 const ShoppingCart = require('./db/models/shopping-cart');
@@ -42,7 +44,7 @@ describe('▒▒▒ Backend tests ▒▒▒', () => {
                 })
         });
 
-        
+
         describe('Review Model', () => {
 
             describe('definition', () => {
@@ -67,7 +69,7 @@ describe('▒▒▒ Backend tests ▒▒▒', () => {
                 });
 
             });
-        
+
 
             describe('validations', () => {
 

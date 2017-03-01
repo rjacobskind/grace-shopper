@@ -1,7 +1,7 @@
 'use strict'
 
-import Sequelize from 'Sequelize'
-import db from 'APP/db'
+const Sequelize = require('Sequelize')
+const db = require('APP/db')
 
 const PurchasedProducts = db.define('purchasedProducts', {
 	price: {
