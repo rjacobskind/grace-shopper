@@ -37,7 +37,6 @@ export const loadProducts = function () {
   return function (dispatch) {
     fetch('/api/products')
     .then(function (res) {
-			// console.log('products', res)
       return res.json();
     })
     .then(function (products) {
