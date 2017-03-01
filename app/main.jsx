@@ -5,6 +5,7 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import Products from './components/Products'
+import ProductsContainer from './containers/ProductsContainer'
 
 import store from './store'
 import Jokes from './components/Jokes'
@@ -28,7 +29,7 @@ render (
     <Router history={browserHistory}>
       <Route path="/" component={ExampleApp}>
         <IndexRedirect to="/home" />
-        <Route path="/home" component={Products} />
+        <Route path="/home" component={ProductsContainer} />
       </Route>
     </Router>
   </Provider>,
