@@ -14,7 +14,7 @@ export default function (props) {
 						<img src={product.image} height="250"/>
 							<li>{ product.name }</li>
 							<li>{ product.description }</li>
-							<li>${product.price}</li>
+							<li>${Math.round(product.price / 100).toFixed(2)}</li>
 						</Link>
 					</ul>
 				)
