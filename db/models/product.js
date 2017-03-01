@@ -1,7 +1,7 @@
 'use strict'
 
-import Sequelize from 'Sequelize'
-import db from 'APP/db'
+const Sequelize = require('Sequelize')
+const db = require('APP/db')
 
 const Product = db.define('product', {
 	name: {
@@ -14,7 +14,7 @@ const Product = db.define('product', {
 	},
 	image: {
 		type: Sequelize.STRING,
-		defaultValue: 'APP/public/default_potion.png',
+		defaultValue: '/default_potion.png',
 	},
 	price: {
 		type: Sequelize.INTEGER,
