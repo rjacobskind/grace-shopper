@@ -41,7 +41,6 @@ export const loadProducts = function () {
       return res.json();
     })
     .then(function (products) {
-			console.log('products', products)
       const action = getProducts(products); // this should dispatch to our store as set products to be all the products fetched via this api request
       dispatch(action);
     })
