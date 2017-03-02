@@ -19,7 +19,15 @@ const {expect} = require('chai');
 
 describe('▒▒▒ Backend tests ▒▒▒', () => {
 
-    //beforeEach('Synchronize and clear database', () => db.sync({force: true}));
+    beforeEach('Synchronize and clear database', () => db.sync({force: true})
+        .then(function(){
+            const review = Review.build({content: "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do."});
+        })
+    
+    
+    )
+        
+
 
     //after('Synchronize and clear database', () => db.sync({force: true}));
 
@@ -47,19 +55,14 @@ describe('▒▒▒ Backend tests ▒▒▒', () => {
 
             describe('definition', () => {
 
-                // *Assertion translation*:
                 // This assertion expects that the Review model will
-                // put an `subject` column in the messages table.
+                // have a `content` column with content length between 5 and 500 characters. 
                 it('has expected content length', () => {
-                    const failReview = Review.build({content: "hi"});
-                    const successReview = Review.build({content: "Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do."});
-                    expect(failReview.attributes.content).to.have.length.lessThan(500);
-                    expect(Review.attributes.content).to.have.length.greaterThan(5);
-                    expect(Review.attributes.content).to.have.length.lessThan(500);
-                    expect(Review.attributes.content).to.have.length.greaterThan(5);
+                    expect(review.attributes.content).to.be.an('object');
+                    expect(review.attributes.content).to.have.length.lessThan(500);
+                    expect(review.attributes.content).to.have.length.greaterThan(5);
                 });
 
-                // *Assertion translation*:
                 // This assertion expects that the Message model will
                 // put an `body` column in the messages table.
                 it('has expected body definition', () => {

@@ -1,13 +1,13 @@
 import React from 'react'
 
 export const Login = ({ login }) => (
-  <form onSubmit={evt => {
+  <form id="loginForm" onSubmit={evt => {
     evt.preventDefault()
     login(evt.target.username.value, evt.target.password.value)
   } }>
-    <input name="username" />
-    <input name="password" type="password" />
-    <input type="submit" value="Login" />
+    <input id="username" name="username" placeholder="username" />
+    <input id="password" name="password" type="password" placeholder="password" />
+    <input id="submit" type="submit" value="Login" />
   </form>
 )
 
@@ -18,3 +18,5 @@ export default connect (
   state => ({}),
   {login},
 ) (Login)
+
+

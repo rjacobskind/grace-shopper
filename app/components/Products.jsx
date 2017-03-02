@@ -4,7 +4,6 @@ import { Link } from 'react-router';
 export default function (props) {
   return (
 	<div>
-		<h1>Our Poppin' Potions</h1>
 		<ul>
 			{props.products ? props.products.map(function(product){
 				return (
