@@ -79,6 +79,10 @@ export default function (state = [], action) {
 			newState = action.allProducts
 			break
 
+    case 'FILTER PRODUCTS':
+      newState = action.filteredProducts
+      break
+
 		default:
 			return state
 	}

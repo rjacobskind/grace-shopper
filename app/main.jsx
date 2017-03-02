@@ -14,10 +14,11 @@ import Login from './components/Login'
 import GoogleLogin from './components/GoogleLogin'
 import WhoAmI from './components/WhoAmI'
 import { loadProducts } from './reducers/products'
+import FilteredProductsContainer from './containers/FilteredProductsContainer'
 
 const Root = connect(
   ({ auth }) => ({ user: auth })
-) (
+  ) (
   ({ user, children }) =>
 
     <div id="navbar">
@@ -41,8 +42,9 @@ render (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Root} onEnter={onLoadProducts}>
-        <IndexRedirect to="/home" />
-        <Route path="/home" component={ProductsContainer} />
+        <IndexRedirect to="/products" />
+        <Route path="/products" component={ProductsContainer} />
+        <Route path="/products/:category" component={FilteredProductsContainer} />
       </Route>
     </Router>
   </Provider>,

@@ -7,11 +7,13 @@ const Navbar = (props) => {
             <form id="search-cat-form">
                 <label id="cat-label">
                     Shop: <select id="categories">
-                            <option value="heart">Heart</option>
-                            <option value="mind">Mind</option>
-                            <option value="body">Body</option>
-                            <option value="misc">Miscellaneous</option>
+                            <option>Select Category</option>
+                            <option value="/heart">Heart</option>
+                            <option value="/mind">Mind</option>
+                            <option value="/body">Body</option>
+                            <option value="/misc">Miscellaneous</option>
                         </select>
+                        <button type="submit">Button</button>
                 </label>
                 <label id="search-label">
                     Search:
