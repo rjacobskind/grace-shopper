@@ -120,7 +120,7 @@ passport.use(new (require('passport-local').Strategy) (
 
 auth.get('/whoami', (req, res) => res.send(req.user))
 
-auth.post('/login/:strategy', (req, res, next) => {
+auth.get('/login/:strategy', (req, res, next) => {
   console.log('we got in the route')
   return passport.authenticate(req.params.strategy, {
     successRedirect: '/'

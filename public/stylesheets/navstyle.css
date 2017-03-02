@@ -37,3 +37,24 @@
     border-radius: 5px;
     position: relative;
 }
+
+#search-cat-form {
+    position: absolute;
+    top: 10%;
+    left: 37%;
+}
+
+#cat-label {
+  font: bold 20px fantasy;
+  margin-right: 20px;
+}
+
+#search-label {
+    font: bold 20px fantasy;
+}
+
+#google {
+    position: relative;
+    left: 81%;
+}
+
