@@ -1,4 +1,3 @@
-
 export const addCartProduct = product => ({
 	type: 'ADD CART PRODUCT',
 	cartProduct: product,
