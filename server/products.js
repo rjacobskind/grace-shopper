@@ -25,4 +25,9 @@ module.exports = require('express').Router()
 		})
 		.catch(next)
 	}) 
+	.post('/:id', (req, res, next) => {
+		CartProduct.create(req.body)
+
+
+	})
 	
