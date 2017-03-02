@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default function (props) {
-  console.log('props', props)
   return (
 	<div>
 		<h1>Our Poppin' Potions</h1>
