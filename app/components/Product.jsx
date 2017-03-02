@@ -11,14 +11,16 @@ export default function (props) {
   			<li>{ props.product.description }</li>
   		</ul>
       <h4>Quantity: </h4> 
-      <select> 
-        <option>1</option> 
-        <option>2</option> 
-        <option>3</option> 
-        <option>4</option> 
-        <option>5</option> 
-      </select> 
-  		<button type="button">Add to Cart</button>
+      <form> 
+        <select> 
+          <option>1</option> 
+          <option>2</option> 
+          <option>3</option> 
+          <option>4</option> 
+          <option>5</option> 
+        </select> 
+    		<button type="submit">Add to Cart</button>
+      </form> 
   	</div> 
   )
 }
