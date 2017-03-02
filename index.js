@@ -35,6 +35,7 @@ if (!reasonableName.test(pkg.name)) {
 const env = Object.create(process.env)
   , secretsFile = resolve(env.HOME, `.${pkg.name}.env`)
 try {
+  console.log('ENV', env, "SF", secretsFile);
   Object.assign(env, require(secretsFile))
 } catch (error) {
   debug('%s: %s', secretsFile, error.message)

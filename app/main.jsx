@@ -15,20 +15,25 @@ const Root = connect(
   ({ auth }) => ({ user: auth })
 ) (
   ({ user, children }) =>
-    <div>
-      <nav>
-        {user ? <WhoAmI/> : <div><Login/> <GoogleLogin/> </div>}
-      </nav> 
-      {children}
+
+    <div id="navbar">
+      <h1 id="title">Poppin' Potions</h1>
+      <div id="nav">
+        <nav>
+          {user ? <WhoAmI /> : <div><Login /> <GoogleLogin /> <Navbar /></div>}
+        </nav>
+        {children}
+      </div>
     </div>
+
 )
 
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Root}>
-        <IndexRedirect to="/potions"/>
-        <Route path="/potions" component={Navbar}/>
+        <IndexRedirect to="/potions" />
+        <Route path="/potions" />
       </Route>
     </Router>
   </Provider>,
