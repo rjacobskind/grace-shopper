@@ -12,29 +12,29 @@ const Order = require('./orders');
 const PurchasedProduct = require('./purchased-products');
 const CartProduct = require('./cart-product');
 
-// OAuth.belongsTo(User);
-// User.hasOne(OAuth);
+OAuth.belongsTo(User);
+User.hasOne(OAuth);
 
-// Review.belongsTo(User);
-// User.hasMany(Review);
+Review.belongsTo(User);
+User.hasMany(Review);
 
-// Review.belongsTo(Product);
-// Product.hasMany(Review);
+Review.belongsTo(Product);
+Product.hasMany(Review);
 
-// Order.belongsTo(User);
-// User.hasMany(Order);
+Order.belongsTo(User);
+User.hasMany(Order);
 
-// Order.hasMany(PurchasedProduct);
-// PurchasedProduct.belongsTo(Order);
+Order.hasMany(PurchasedProduct);
+PurchasedProduct.belongsTo(Order);
 
-// User.hasMany(CartProduct);
-// CartProduct.belongsTo(User);
+User.hasMany(CartProduct);
+CartProduct.belongsTo(User);
 
-// Product.hasMany(CartProduct);
-// CartProduct.belongsTo(Product);
+Product.hasMany(CartProduct);
+CartProduct.belongsTo(Product);
 
-// PurchasedProduct.belongsTo(Product);
-// Product.hasMany(PurchasedProduct);
+PurchasedProduct.belongsTo(Product);
+Product.hasMany(PurchasedProduct);
 
 module.exports = {
   User,
