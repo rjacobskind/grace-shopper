@@ -6,6 +6,7 @@ import {connect, Provider} from 'react-redux'
 
 import Products from './components/Products'
 import ProductsContainer from './containers/ProductsContainer'
+import ProductContainer from './containers/ProductContainer'
 
 import store from './store'
 import Jokes from './components/Jokes'
@@ -13,7 +14,8 @@ import Navbar from './components/Navbar'
 import Login from './components/Login'
 import GoogleLogin from './components/GoogleLogin'
 import WhoAmI from './components/WhoAmI'
-import { loadProducts } from './reducers/products'
+import { loadProducts} from './reducers/products'
+import { loadSingleProduct } from './reducers/product'
 
 const Root = connect(
   ({ auth }) => ({ user: auth })
@@ -37,12 +39,19 @@ const onLoadProducts = function () {
   store.dispatch(action)
 }
 
+const onLoadSingleProduct = function(route) {
+  var id = route.params.id; 
+  const action = loadSingleProduct(id)
+  store.dispatch(action)
+}
+
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Root} onEnter={onLoadProducts}>
         <IndexRedirect to="/home" />
         <Route path="/home" component={ProductsContainer} />
+        <Route path="/products/:id" component={ProductContainer} onEnter={onLoadSingleProduct} />  
       </Route>
     </Router>
   </Provider>,
