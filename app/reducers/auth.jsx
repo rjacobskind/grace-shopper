@@ -30,6 +30,7 @@ export const whoami = () =>
   dispatch =>
     axios.get('/api/auth/whoami')
       .then(response => {
+        console.log("*****", response)
         const user = response.data
         dispatch(authenticated(user))
       })
