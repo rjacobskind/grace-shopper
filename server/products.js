@@ -17,15 +17,15 @@ module.exports = require('express').Router()
 		.then(arrayOfProducts => res.json(arrayOfProducts))
 		.catch(next)
 	)
-	.post('/:id', (req, res, next) => 
+	//.post('/:id', (req, res, next) => 
 		// come back to once we make form 
 
-		Product.create
+		//Product.create
 
 
 
 
-		)
+		//)
 
 	//.get(/:id, returns a specific product)
 
