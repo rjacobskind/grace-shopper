@@ -1,7 +1,27 @@
+import axios from 'axios'
+
 export const addCartProduct = product => ({
 	type: 'ADD CART PRODUCT',
 	cartProduct: product,
 })
+
+
+export const addProduct = function () {
+	var quantity = // to fill in 
+  return function (dispatch) {
+    axios.post(`/api/products/${id}`, quantity)
+    .then(function (res) {
+      return res.data;
+    })
+    .then(function (product) {
+      const action = addCartProduct(product); // this should dispatch to our store as set our newly created cart product in our cart state
+      dispatch(action);
+    })
+    .catch(function (err) {
+      console.error(err)
+    });
+  };
+};
 
 
 /* 
