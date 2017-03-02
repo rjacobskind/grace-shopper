@@ -46,14 +46,14 @@ OAuth.setupStrategy({
   passport
 })
 
-// Google needs the GOOGLE_CONSUMER_SECRET AND GOOGLE_CONSUMER_KEY
+// Google needs the GOOGLE_CLIENT_SECRET AND GOOGLE_CLIENT_ID
 // environment variables.
 OAuth.setupStrategy({
   provider: 'google',
-  strategy: require('passport-google-oauth').Strategy,
+  strategy: require('passport-google-oauth').OAuth2Strategy,
   config: {
-    consumerKey: env.GOOGLE_CONSUMER_KEY,
-    consumerSecret: env.GOOGLE_CONSUMER_SECRET,
+    clientID: env.GOOGLE_CLIENT_ID,
+    clientSecret: env.GOOGLE_CLIENT_SECRET,
     callbackURL: `${app.baseUrl}/api/auth/login/google`,
   },
   passport
@@ -120,12 +120,19 @@ passport.use(new (require('passport-local').Strategy) (
 
 auth.get('/whoami', (req, res) => res.send(req.user))
 
-auth.get('/login/:strategy', (req, res, next) => {
-  console.log('we got in the route')
-  return passport.authenticate(req.params.strategy, {
-    successRedirect: '/'
-})(req, res, next);}
-);
+
+// POST requests for local login:
+auth.post('/login/local', passport.authenticate('local', { successRedirect: '/', }))
+
+// GET requests for OAuth login:
+// Register this route as a callback URL with OAuth provider
+auth.get('/login/:strategy', (req, res, next) =>
+  passport.authenticate(req.params.strategy, {
+    scope: 'email',
+    successRedirect: '/',
+    // Specify other config here, such as "scope"
+  })(req, res, next)
+)
 
 auth.post('/logout', (req, res, next) => {
   req.logout()
