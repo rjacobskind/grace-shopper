@@ -30,7 +30,7 @@ import axios from 'axios'
 // ~~~~~~~~ same as above action creator, just renamed ~~~~~~~~~~~~~~~~~~
 export const getProducts = products => ({
 	type: 'GET PRODUCTS',
-	allProducts: products,
+	products: products,
 })
 
 export const filterProducts = products => ({
@@ -76,12 +76,8 @@ export default function (state = [], action) {
 
 	switch (action.type) {
 		case 'GET PRODUCTS':
-			newState = action.allProducts
+			newState = action.products
 			break
-
-    case 'FILTER PRODUCTS':
-      newState = action.filteredProducts
-      break
 
 		default:
 			return state

@@ -4,8 +4,10 @@ import Products from '../components/Products';
 import {productsActionCreator, initialState} from '../reducers/products'
 
 const mapStateToProps = (state, ownProps) => {
+  console.log('products props', ownProps)
+
   return {
-    products: state.products,
+    products: ownProps.products,
   }
 }
 

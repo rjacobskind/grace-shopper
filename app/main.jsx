@@ -1,6 +1,6 @@
 'use strict'
 import React from 'react'
-import {Router, Route, IndexRedirect, browserHistory} from 'react-router'
+import {Router, Route, IndexRedirect, IndexRoute, browserHistory} from 'react-router'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
@@ -25,7 +25,7 @@ const Root = connect(
       <h1 id="title">Poppin' Potions</h1>
       <div id="nav">
         <nav>
-          {user ? <WhoAmI /> : <div><Login /> <GoogleLogin /> <Navbar /></div>}
+          {user ? <WhoAmI /> : <div><Login /> <GoogleLogin /></div>}
         </nav>
         {children}
       </div>
@@ -41,10 +41,11 @@ const onLoadProducts = function () {
 render (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Root} onEnter={onLoadProducts}>
+      <Route path="/" component={Root}>
         <IndexRedirect to="/products" />
-        <Route path="/products" component={ProductsContainer} />
-        <Route path="/products/:category" component={FilteredProductsContainer} />
+        <Route path="/products" onEnter={onLoadProducts} />
+          <Route path="/products/:category" component={FilteredProductsContainer} onEnter={onLoadProducts} />
+          <IndexRoute component={ProductsContainer} />
       </Route>
     </Router>
   </Provider>,
