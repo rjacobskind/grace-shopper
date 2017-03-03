@@ -9,7 +9,6 @@ import ProductsContainer from './containers/ProductsContainer'
 
 import store from './store'
 import Jokes from './components/Jokes'
-import Navbar from './components/Navbar'
 import Login from './components/Login'
 import GoogleLogin from './components/GoogleLogin'
 import WhoAmI from './components/WhoAmI'

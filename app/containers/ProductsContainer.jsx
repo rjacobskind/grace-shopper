@@ -1,7 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import Products from '../components/Products';
-import { loadFilteredProducts } from '../reducers/products'
 
 const mapStateToProps = (state, ownProps) => {
   if (!ownProps.params.category) {
