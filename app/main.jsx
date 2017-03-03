@@ -4,16 +4,13 @@ import {Router, Route, IndexRedirect, IndexRoute, browserHistory} from 'react-ro
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
-import Products from './components/Products'
 import ProductsContainer from './containers/ProductsContainer'
 
 import store from './store'
-import Jokes from './components/Jokes'
 import Login from './components/Login'
 import GoogleLogin from './components/GoogleLogin'
 import WhoAmI from './components/WhoAmI'
 import { loadProducts } from './reducers/products'
-import FilteredProductsContainer from './containers/FilteredProductsContainer'
 
 const Root = connect(
   ({ auth }) => ({ user: auth })
@@ -37,7 +34,7 @@ const onLoadProducts = function () {
   store.dispatch(action)
 }
 
-render (
+render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <Route path="/" component={Root}>

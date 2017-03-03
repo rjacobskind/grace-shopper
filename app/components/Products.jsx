@@ -6,7 +6,7 @@ class Products extends Component {
 		super(props)
 
 		this.state = {
-			category: ""
+			category: ''
 		}
 
 		this.onFilterClick = this.onFilterClick.bind(this)

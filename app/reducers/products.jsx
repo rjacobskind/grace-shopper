@@ -55,23 +55,6 @@ export const loadProducts = function () {
   };
 };
 
-export const loadFilteredProducts = function (category) {
-  return function (dispatch) {
-    fetch('/api/products/' + category.category)
-    .then(function (res) {
-      console.log(res)
-      return res.json()
-    })
-    .then(function (filteredProducts) {
-      const action = filterProducts(filteredProducts)
-      dispatch(action)
-    })
-    .catch(function (err) {
-      console.error(err)
-    })
-  }
-}
-
 export default function (state = [], action) {
 	let newState = Object.assign({}, state)
 
