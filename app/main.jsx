@@ -43,9 +43,10 @@ render (
     <Router history={browserHistory}>
       <Route path="/" component={Root}>
         <IndexRedirect to="/products" />
-        <Route path="/products" onEnter={onLoadProducts} />
-          <Route path="/products/:category" component={FilteredProductsContainer} onEnter={onLoadProducts} />
+        <Route path="/products" onEnter={onLoadProducts} >
+          <Route path="/products/:category" component={FilteredProductsContainer} />
           <IndexRoute component={ProductsContainer} />
+        </Route>
       </Route>
     </Router>
   </Provider>,

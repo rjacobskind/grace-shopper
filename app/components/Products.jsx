@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 export default function (props) {
+	console.log('products props', props)
   return (
 	<div>
 		<div id="searchForm">
