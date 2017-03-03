@@ -6,10 +6,9 @@ export const addCartProduct = product => ({
 })
 
 
-export const addProduct = function () {
-	var quantity = // to fill in 
+export const addProductToCart = function (productId, quantity) {
   return function (dispatch) {
-    axios.post(`/api/products/${id}`, quantity)
+    axios.post(`/api/cart/${productId}`, quantity)
     .then(function (res) {
       return res.data;
     })
@@ -24,9 +23,9 @@ export const addProduct = function () {
 };
 
 
-/* 
-This is the reducer for the shopping cart component of state. 
-Its state is an array, and holds each product of a user's cart. 
+/*
+This is the reducer for the shopping cart component of state.
+Its state is an array, and holds each product of a user's cart.
 The action 'ADD CART PRODUCT' adds a product to this state array.
 */
 export default function (state = [], action) {

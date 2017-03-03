@@ -2,16 +2,11 @@
 
 const db = require('APP/db')
 const Product = db.model('product')
-const CartProduct = db.model('cartProduct')
-var seshId = 1;
 
 module.exports = require('express').Router()
 	.get('/', (req, res, next) => {
-		if (!req.session.sessionId){
-			req.session.sessionId = seshId
-			seshId++
-		}
-		console.log(req.session, "******");
+		console.log(req.session, "REQ.SESSION")
+		console.log(req.user, "USER")
 		Product.findAll({
 			// This only fetches products that have an inventory amount that is not equal to 0
 			where: {
@@ -33,10 +28,3 @@ module.exports = require('express').Router()
 		})
 		.catch(next)
 	})
-	.post('/:id', (req, res, next) =>
-		CartProduct.create(req.body)
-		.then(cartItem => {
-			//cartItem.setUser() //possibly need to create session stuff to get this info
-			cartItem.setProduct(req.params.id)
-		})
-	)

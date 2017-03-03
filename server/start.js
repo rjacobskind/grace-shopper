@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const {resolve} = require('path')
 const passport = require('passport')
 const PrettyError = require('pretty-error')
+let seshId = 0;
 // PrettyError docs: https://www.npmjs.com/package/pretty-error
 
 // Bones has a symlink from node_modules/APP to the root of the app.
@@ -48,6 +49,15 @@ module.exports = app
 
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
+
+  .use((req, res, next) => {
+		if (!req.session.sessionId){
+			req.session.sessionId = "Sesh " + seshId
+			seshId++
+		}
+    //console.log(req.session, "REQ.SESSION")
+    next()
+  })
 
   // Serve our api - ./api also requires in ../db, which syncs with our database
   .use('/api', require('./api'))
