@@ -4,24 +4,16 @@ import Products from '../components/Products';
 import { loadFilteredProducts } from '../reducers/products'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state, ownProps)
-  if (!ownProps.products) {
+  if (!ownProps.params.category) {
     return { products: state.products }
   } else {
     return {
-
-      products: ownProps.products,
+      products: state.products.filter(function (product) {
+        return product.category === ownProps.params.category
+      }),
       category: ownProps.category,
     }
   }
 }
 
-const mapDispatchToProps = function(dispatch, ownProps){
-  return {
-    onFilterChange: function (event) {
-
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Products);
+export default connect(mapStateToProps)(Products);

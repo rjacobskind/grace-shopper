@@ -5,11 +5,18 @@ class Products extends Component {
 	constructor(props) {
 		super(props)
 
+		this.state = {
+			category: ""
+		}
+
 		this.onFilterClick = this.onFilterClick.bind(this)
 	}
 
 	onFilterClick (category) {
 		browserHistory.push('/products/' + category)
+		this.setState({
+			category: category
+		})
 	}
 
 	render() {
@@ -20,13 +27,13 @@ class Products extends Component {
 			<div id="searchForm">
 				<form id="search-cat-form">
 					<label id="cat-label">
-						Shop: <select
+						Categories: <select
 							id="categories"
 							name="Category"
-							value={props.category}
-							onChange={() => this.onFilterClick(props.category)}
+							value={this.state.category}
+							onChange={(event) => this.onFilterClick(event.target.value)}
 							>
-								<option>Select Category</option>
+								<option value="">Show all</option>
 								<option value="heart">Heart</option>
 								<option value="mind">Mind</option>
 								<option value="body">Body</option>
