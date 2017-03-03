@@ -9,11 +9,9 @@ export const loadSingleProduct = function (id) {
   return function (dispatch) {
     axios.get(`/api/products/${id}`)
     .then(function (res) {
-    	console.log("RES", res)
       return res.data
     })
     .then(function (product) {
-    	console.log("PRODUCT", product);
       const action = getProduct(product); // this should dispatch to our store as set single product to be all the product fetched via this api request
       dispatch(action);
     })

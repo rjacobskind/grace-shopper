@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     addCartProduct: addProductToCart
-  }
+  };
 }
 
-export default connect(mapStateToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(Product);
