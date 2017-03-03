@@ -57,8 +57,9 @@ export const loadProducts = function () {
 
 export const loadFilteredProducts = function (category) {
   return function (dispatch) {
-    fetch('/api/products/' + category)
+    fetch('/api/products/' + category.category)
     .then(function (res) {
+      console.log(res)
       return res.json()
     })
     .then(function (filteredProducts) {
