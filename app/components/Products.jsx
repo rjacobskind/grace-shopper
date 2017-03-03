@@ -21,7 +21,6 @@ class Products extends Component {
 
 	render() {
 		const props = this.props
-		console.log(props)
 		return (
 		<div>
 			<div id="searchForm">

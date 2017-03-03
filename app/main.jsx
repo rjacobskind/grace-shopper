@@ -41,7 +41,6 @@ render(
         <IndexRedirect to="/products" />
         <Route path="/products" component={ProductsContainer} onEnter={onLoadProducts} >
           <Route path="/products/:category" component={ProductsContainer} />
-          <IndexRoute component={ProductsContainer} />
         </Route>
       </Route>
     </Router>
