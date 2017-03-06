@@ -6,20 +6,23 @@ export const addCartProduct = product => ({
 })
 
 
-export const addProductToCart = function (productId, quantity) {
-  return function (dispatch) {
-    axios.post(`/api/cart/${productId}`, {quantity})
+export const addProductToCart = function (productId, quantityObj) {
+  console.log("inside the add product to cart function"); 
+  console.log("PRODUCT ID", productId); 
+  console.log("QUANTITY", quantityObj); 
+  //return function (dispatch) {
+    axios.post(`/api/cart/${productId}`, quantityObj)
     .then(function (res) {
       return res.data;
     })
     .then(function (prod) {
       const action = addCartProduct(prod); // this should dispatch to our store as set our newly created cart product in our cart state
-      dispatch(action);
+     // dispatch(action);
     })
     .catch(function (err) {
       console.error(err)
     });
-  };
+  //};
 };
 
 

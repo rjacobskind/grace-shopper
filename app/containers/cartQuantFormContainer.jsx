@@ -5,17 +5,29 @@ export default class extends Component{
   constructor(props){
     super(props)
     this.state = {
-      quantity: null
+      quantity: 1 
     }
+    this.submitHandler = this.submitHandler.bind(this); 
+  }
+
+  submitHandler(event){
+    console.log("EVENT", event); 
+    event.preventDefault(); 
+    this.props.handleSubmit(this.props.productId, {quantity: this.state.quantity})
   }
 
 
   render(){
-    console.log(this.props, "QUANTPROPS");
+    var handleSubmit = this.props.handleSubmit; 
+    var productId = this.props.productId; 
+    console.log("Quantity", this.state.quantity)
+    console.log("handleSubmit:", handleSubmit)
+    console.log("product id:", productId)
     return (
-      <form onSubmit={() => this.props.handleSubmit(this.props.productId, this.state.quantity)}>
+      <form onSubmit={(event) => {console.log("submitted"); 
+                this.submitHandler(event)}} >
 				<h4>Quantity</h4>
-        <select onChange={() => this.setState({quantity: event.target.value})}>
+        <select onChange={(event) => this.setState({quantity: event.target.value})}>
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -27,3 +39,4 @@ export default class extends Component{
     )
   }
 }
+
