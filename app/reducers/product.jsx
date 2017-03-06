@@ -2,13 +2,14 @@ import axios from 'axios'
 
 export const getProduct = product => ({
 	type: 'GET SINGLE PRODUCT',
-	singleProduct: product,
+	product: product,
 })
 
 export const loadSingleProduct = function (id) {
   return function (dispatch) {
     axios.get(`/api/products/${id}`)
     .then(function (res) {
+      console.log(res)
       return res.data
     })
     .then(function (product) {
@@ -26,7 +27,7 @@ export default function (state = {}, action) {
 
 	switch (action.type) {
 		case 'GET SINGLE PRODUCT':
-			newState = action.singleProduct
+			newState = action.product
 			break
 
 		default:

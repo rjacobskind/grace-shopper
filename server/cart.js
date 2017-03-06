@@ -8,11 +8,11 @@ module.exports = require('express').Router()
 	.post('/:productId', function(req, res, next){
 		CartProduct.findOne({
 			where: {
-				product_id: req.params.productId, 
+				product_id: req.params.productId,
 				$or: [
-					{sessionId: req.session.sessionId}, 
+					{sessionId: req.session.sessionId},
 					{user_id: req.user.id}
-					]
+				]
 			}
 		})
 		.then(function(cartItem){
@@ -43,5 +43,5 @@ module.exports = require('express').Router()
 				}
 		})
 
-	}) 
+	})
 
