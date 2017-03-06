@@ -5,8 +5,7 @@ const db = require('APP/db')
 
 const CartProduct = db.define('cartProduct', {
 	quantity: {
-		type: Sequelize.INTEGER,
-		allowNull: false,
+		type: Sequelize.INTEGER
 	},
 	sessionId: {
 		type: Sequelize.STRING,
