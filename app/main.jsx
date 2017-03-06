@@ -3,8 +3,11 @@ import React from 'react'
 import {Router, Route, IndexRedirect, IndexRoute, browserHistory} from 'react-router'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
+import {RouterToUrlQuery} from 'react-url-query'
 
 import ProductsContainer from './containers/ProductsContainer'
+import SearchContainer from './containers/SearchContainer'
+
 
 import store from './store'
 import Login from './components/Login'
@@ -21,6 +24,7 @@ const Root = connect(
       <h1 id="title">Poppin' Potions</h1>
       <div id="nav">
         <nav>
+          <SearchContainer/>
           {user ? <WhoAmI /> : <div><Login /> <GoogleLogin /></div>}
         </nav>
         {children}
@@ -37,12 +41,14 @@ const onLoadProducts = function () {
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
+      <RouterToUrlQuery>
       <Route path="/" component={Root}>
         <IndexRedirect to="/products" />
         <Route path="/products" component={ProductsContainer} onEnter={onLoadProducts} >
           <Route path="/products/:category" component={ProductsContainer} />
         </Route>
       </Route>
+      </RouterToUrlQuery>
     </Router>
   </Provider>,
   document.getElementById('main')

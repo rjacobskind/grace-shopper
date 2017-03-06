@@ -39,14 +39,8 @@ class Products extends Component {
 								<option value="misc">Miscellaneous</option>
 							</select>
 					</label>
-					<label id="search-label">
-						Search:
-						<input id="search-bar" name="search" type="text" placeholder="search..." />
-					</label>
-					<input id="search-button" name="search_submit" type="submit" value="go" />
 				</form>
 			</div>
-
 			<div id="products">
 				<ul>
 					{props.products ? props.products.map(function(product){
