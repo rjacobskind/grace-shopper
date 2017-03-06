@@ -13,7 +13,7 @@ import GoogleLogin from './components/GoogleLogin'
 import WhoAmI from './components/WhoAmI'
 import { loadProducts} from './reducers/products'
 import { loadSingleProduct } from './reducers/product'
-console.log('hi')
+
 const Root = connect(
   ({ auth }) => ({ user: auth })
   ) (
