@@ -16,5 +16,3 @@ export default function (props) {
   )
 }
 
-
-//props.addCartProduct(props.product.id, event.target.value)
