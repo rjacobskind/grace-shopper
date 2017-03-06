@@ -5,8 +5,6 @@ const Product = db.model('product')
 
 module.exports = require('express').Router()
 	.get('/', (req, res, next) => {
-		console.log(req.session, "REQ.SESSION")
-		console.log(req.user, "USER")
 		Product.findAll({
 			// This only fetches products that have an inventory amount that is not equal to 0
 			where: {

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getProducts = products => ({
 	type: 'GET PRODUCTS',
-	allProducts: products,
+	products: products,
 })
 
 export const loadProducts = function () {
@@ -27,7 +27,7 @@ export default function (state = [], action) {
 
 	switch (action.type) {
 		case 'GET PRODUCTS':
-			newState = action.allProducts
+			newState = action.products
 			break
 
 		default:
