@@ -17,7 +17,7 @@ module.exports = require('express').Router()
 		})
 		.then(function(cartItem){
 			if (!cartItem){
-				CartProduct.create(req.body)
+				CartProduct.create(req.body) //TS: you can return async functions to have linear .thens - maybe findOrCreate?
 				.then(function(cartItem){
 					cartItem.setProduct(req.params.productId);
 				    if (req.user){

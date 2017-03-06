@@ -15,7 +15,7 @@ export const loadSingleProduct = function (id) {
       const action = getProduct(product); // this should dispatch to our store as set single product to be all the product fetched via this api request
       dispatch(action);
     })
-    .catch(function (err) {
+    .catch(function (err) { //TS: just pass in console.error
       console.error(err)
     });
   };

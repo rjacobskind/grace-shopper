@@ -17,7 +17,7 @@ export default class extends Component{
 
 
   render(){
-    var handleSubmit = this.props.handleSubmit; 
+    var handleSubmit = this.props.handleSubmit; //TS: const {handleSubmit, productId} = this.props
     var productId = this.props.productId; 
     return (
       <form onSubmit={(event) => {console.log("submitted"); 

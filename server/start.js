@@ -52,6 +52,7 @@ module.exports = app
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
 
+  //TS: check if there's not a user
   .use((req, res, next) => {
 		if (!req.session.sessionId){
 			req.session.sessionId = "Sesh " + seshId

@@ -38,12 +38,13 @@ const onLoadProducts = function () {
 
 
 const onLoadSingleProduct = function(route) {
+  console.log('onloadsingleproduct::::')
   var id = route.params.id;
   const action = loadSingleProduct(id)
   store.dispatch(action)
 }
 
-
+//TS: single product view isn't working 
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -58,3 +59,5 @@ render(
   </Provider>,
   document.getElementById('main')
 )
+
+//TS: some front end tests might be nice

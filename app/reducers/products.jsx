@@ -9,14 +9,14 @@ export const loadProducts = function () {
   return function (dispatch) {
     fetch('/api/products')
     .then(function (res) {
-			// console.log('products', res)
+			// console.log('products', res) //TS: remove before pushing to github
       return res.json();
     })
     .then(function (products) {
       const action = getProducts(products); // this should dispatch to our store as set products to be all the products fetched via this api request
       dispatch(action);
     })
-    .catch(function (err) {
+    .catch(function (err) { //DRY
       console.error(err)
     });
   };

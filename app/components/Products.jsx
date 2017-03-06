@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link, browserHistory } from 'react-router';
 
+//TS: maybe experiment with rendering the children so you don't have to make product/:id a sibling
+//TS: you used products ? products - you can also use products && products
+
 class Products extends Component {
 	constructor(props) {
 		super(props)
@@ -20,6 +23,7 @@ class Products extends Component {
 	}
 
 	render() {
+		//TS: maybe - const {products} = this.props
 		const props = this.props
 		return (
 		<div>
@@ -52,7 +56,7 @@ class Products extends Component {
 					{props.products ? props.products.map(function(product){
 						return (
 							<ul key={product.id}>
-								<Link to={`products/${product.id}`}>
+								<Link to={`/products/${product.id}`}>
 								<img src={product.image} height="250"/>
 									<li>{ product.name }</li>
 									<li>{ product.description }</li>

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import QuantityForm from '../containers/cartQuantFormContainer';
 
-export default function (props) {
+//TS: de-structure props
+export default function (props) { //TS: de structure 
   return (
   	<div>
   		<h1>{ props.product.name}</h1>
