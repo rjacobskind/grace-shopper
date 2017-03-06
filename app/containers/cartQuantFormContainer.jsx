@@ -11,7 +11,6 @@ export default class extends Component{
   }
 
   submitHandler(event){
-    console.log("EVENT", event); 
     event.preventDefault(); 
     this.props.handleSubmit(this.props.productId, {quantity: this.state.quantity})
   }
@@ -20,9 +19,6 @@ export default class extends Component{
   render(){
     var handleSubmit = this.props.handleSubmit; 
     var productId = this.props.productId; 
-    console.log("Quantity", this.state.quantity)
-    console.log("handleSubmit:", handleSubmit)
-    console.log("product id:", productId)
     return (
       <form onSubmit={(event) => {console.log("submitted"); 
                 this.submitHandler(event)}} >
