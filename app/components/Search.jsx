@@ -66,9 +66,5 @@ const urlPropsQueryConfig = {
 
 }
 
-// mapStateToProps = () => {
-
-// }
-
 
 export default addUrlProps({urlPropsQueryConfig})(Search)
