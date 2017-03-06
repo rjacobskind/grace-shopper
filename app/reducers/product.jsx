@@ -1,23 +1,15 @@
 import axios from 'axios'
 
-export const initialState = {
-			name: 'Love Potion',
-			description: 'For falling in love.',
-			price: 500,
-			category: ['potion', 'love'],
-		}
-	
-
-export const getProduct = product => ({    
-	type: 'GET SINGLE PRODUCT', 
-	singleProduct: product, 
+export const getProduct = product => ({
+	type: 'GET SINGLE PRODUCT',
+	singleProduct: product,
 })
 
-export const loadProduct = function (id) {
+export const loadSingleProduct = function (id) {
   return function (dispatch) {
-    fetch(`/api/products/${id}`)
+    axios.get(`/api/products/${id}`)
     .then(function (res) {
-      return res.json();
+      return res.data
     })
     .then(function (product) {
       const action = getProduct(product); // this should dispatch to our store as set single product to be all the product fetched via this api request
@@ -29,8 +21,7 @@ export const loadProduct = function (id) {
   };
 };
 
-
-export default function (state = initialState, action) {
+export default function (state = {}, action) {
 	let newState = Object.assign({}, state)
 
 	switch (action.type) {

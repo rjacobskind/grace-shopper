@@ -5,12 +5,14 @@ import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 
 import ProductsContainer from './containers/ProductsContainer'
+import ProductContainer from './containers/ProductContainer'
 
 import store from './store'
 import Login from './components/Login'
 import GoogleLogin from './components/GoogleLogin'
 import WhoAmI from './components/WhoAmI'
-import { loadProducts } from './reducers/products'
+import { loadProducts} from './reducers/products'
+import { loadSingleProduct } from './reducers/product'
 
 const Root = connect(
   ({ auth }) => ({ user: auth })
@@ -34,6 +36,14 @@ const onLoadProducts = function () {
   store.dispatch(action)
 }
 
+
+const onLoadSingleProduct = function(route) {
+  var id = route.params.id; 
+  const action = loadSingleProduct(id)
+  store.dispatch(action)
+}
+
+
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
@@ -41,6 +51,7 @@ render(
         <IndexRedirect to="/products" />
         <Route path="/products" component={ProductsContainer} onEnter={onLoadProducts} >
           <Route path="/products/:category" component={ProductsContainer} />
+          <Route path="/products/:id" component={ProductContainer} onEnter={onLoadSingleProduct} />  
         </Route>
       </Route>
     </Router>

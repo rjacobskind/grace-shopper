@@ -9,6 +9,7 @@ api
   .use('/users', require('./users'))
 
   .use('/products', require('./products'))
+  .use('/cart', require('./cart')) // this is working
 
 
 // No routes matched? 404.
