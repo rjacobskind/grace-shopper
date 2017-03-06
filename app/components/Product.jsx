@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import QuantityForm from '../containers/cartQuantFormContainer';
 
 export default function (props) {
-  console.log('*********PROPS***********', props)
   return (
   	<div>
   		<h1>{ props.product.name}</h1>
