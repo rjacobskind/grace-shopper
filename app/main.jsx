@@ -38,7 +38,7 @@ const onLoadProducts = function () {
 
 
 const onLoadSingleProduct = function(route) {
-  var id = route.params.id; 
+  var id = route.params.id;
   const action = loadSingleProduct(id)
   store.dispatch(action)
 }
@@ -51,7 +51,7 @@ render(
         <IndexRedirect to="/products" />
         <Route path="/products" component={ProductsContainer} onEnter={onLoadProducts} >
           <Route path="/products/:category" component={ProductsContainer} />
-          <Route path="/products/:id" component={ProductContainer} onEnter={onLoadSingleProduct} />  
+          <Route path="/products/:id" component={ProductContainer} onEnter={onLoadSingleProduct} />
         </Route>
       </Route>
     </Router>
