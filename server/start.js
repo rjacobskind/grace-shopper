@@ -55,7 +55,6 @@ module.exports = app
 			req.session.sessionId = "Sesh " + seshId
 			seshId++
 		}
-    //console.log(req.session, "REQ.SESSION")
     next()
   })
 
