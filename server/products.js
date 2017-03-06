@@ -17,11 +17,3 @@ module.exports = require('express').Router()
 		.then(arrayOfProducts => res.json(arrayOfProducts))
 		.catch(next)
 	)
-	.get('/:category', (req, res, next) =>
-		Product.findAll({ where: {
-			category: req.params.category
-		}})
-		.then(arrayOfProducts => res.json(arrayOfProducts))
-		.catch(next)
-	)
-
