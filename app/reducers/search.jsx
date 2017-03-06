@@ -6,7 +6,7 @@ export const searchQuery = text => ({
 })
 
 export default function (state = [], action){
-    let newState = Object.assign({}, state)
+    const newState = Object.assign({}, state)
 
     switch(action.type){
         case 'SEARCH_QUERY':
