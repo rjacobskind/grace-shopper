@@ -13,7 +13,7 @@ class Products extends Component {
 	}
 
 	onFilterClick (category) {
-		browserHistory.push('/products/' + category)
+		browserHistory.push('/products/category/' + category)
 		this.setState({
 			category: category
 		})
@@ -52,7 +52,7 @@ class Products extends Component {
 					{props.products ? props.products.map(function(product){
 						return (
 							<ul key={product.id}>
-								<Link to={`products/${product.id}`}>
+								<Link to={`/products/${product.id}`}>
 								<img src={product.image} height="250"/>
 									<li>{ product.name }</li>
 									<li>{ product.description }</li>
