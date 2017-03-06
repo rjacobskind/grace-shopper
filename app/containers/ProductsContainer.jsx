@@ -1,10 +1,8 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import Products from '../components/Products'
+import {connect} from 'react-redux';
+import Products from '../components/Products';
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('!!!!!!!', state);
-  console.log('????', ownProps)
+  
   var searchQuery = ownProps.location.query.search
 
   if (ownProps.location.query.search){

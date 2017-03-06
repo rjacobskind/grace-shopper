@@ -7,13 +7,15 @@ import {RouterToUrlQuery} from 'react-url-query'
 
 import ProductsContainer from './containers/ProductsContainer'
 import SearchContainer from './containers/SearchContainer'
+import ProductContainer from './containers/ProductContainer'
 
 
 import store from './store'
 import Login from './components/Login'
 import GoogleLogin from './components/GoogleLogin'
 import WhoAmI from './components/WhoAmI'
-import { loadProducts } from './reducers/products'
+import { loadProducts} from './reducers/products'
+import { loadSingleProduct } from './reducers/product'
 
 const Root = connect(
   ({ auth }) => ({ user: auth })
@@ -38,15 +40,23 @@ const onLoadProducts = function () {
   store.dispatch(action)
 }
 
+
+const onLoadSingleProduct = function(route) {
+  var id = route.params.id;
+  const action = loadSingleProduct(id)
+  store.dispatch(action)
+}
+
+
 render(
   <Provider store={store}>
     <Router history={browserHistory}>
       <RouterToUrlQuery>
       <Route path="/" component={Root}>
         <IndexRedirect to="/products" />
-        <Route path="/products" component={ProductsContainer} onEnter={onLoadProducts} >
-          <Route path="/products/:category" component={ProductsContainer} />
-        </Route>
+        <Route path="/products" component={ProductsContainer} onEnter={onLoadProducts} />
+        <Route path="/products/:id" component={ProductContainer} onEnter={onLoadSingleProduct} />
+        <Route path="/products/category/:category" component={ProductsContainer} />
       </Route>
       </RouterToUrlQuery>
     </Router>

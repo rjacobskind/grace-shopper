@@ -34,7 +34,6 @@ handleSubmit(event){
 }
 
 render(){
-console.log('PROPS', this.props)
 return (
 <form onSubmit={this.handleSubmit}>
     <label id="search-label">

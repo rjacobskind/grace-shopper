@@ -4,9 +4,6 @@ import Search from '../components/Search'
 
 
 const mapStateToProps = (state, ownProps) => {
-   console.log('OWNPROPS',ownProps)
-   console.log('STATE', state)
-
     return {
         search: state.search
     }
