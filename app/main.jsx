@@ -27,6 +27,11 @@ const Root = connect(
       <div id="nav">
         <nav>
           <SearchContainer/>
+              <input
+              id="cart-button"
+              type="submit"
+              value="cart"
+          />
           {user ? <WhoAmI /> : <div><Login /> <GoogleLogin /></div>}
         </nav>
         {children}
