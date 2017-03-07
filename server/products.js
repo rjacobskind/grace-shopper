@@ -19,10 +19,7 @@ module.exports = require('express').Router()
 	})
 
 	.get('/:id', (req, res, next) => {
-		var id = req.params.id;
-		Product.findById(parseInt(id))
-		.then(singleProduct => {
-			res.json(singleProduct)
-		})
+		Product.findById(parseInt(req.params.id))
+		.then(singleProduct => res.json(singleProduct))
 		.catch(next)
 	})
