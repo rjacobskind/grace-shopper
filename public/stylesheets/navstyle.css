@@ -53,7 +53,7 @@ a:link {
 
 #title {
     padding: 10px 20px 10px 25px;
-    font-family: fantasy;
+    font-family: Georgia, serif;
     color: white;
 }
 
@@ -65,7 +65,7 @@ a:link {
 }
 
 #cat-label {
-  font: bold 20px fantasy;
+  font: bold 20px Georgia, serif;
 }
 
 #username {
@@ -94,13 +94,13 @@ a:link {
 }
 
 #cat-label {
-  font: bold 20px fantasy;
+  font: bold 20px Georgia, serif;
   margin-right: 20px;
   color: white;
 }
 
 #search-label {
-    font: bold 20px fantasy;
+    font: bold 20px Georgia, serif;
     color: white;
     margin-left: 30px;
 }
