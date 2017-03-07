@@ -63,6 +63,8 @@ module.exports = app
   // Serve our api - ./api also requires in ../db, which syncs with our database
   .use('/api', require('./api'))
 
+  .get('/github', (req, res, next) => {res.redirect(301, 'https://github.com/rjacobskind/grace-shopper')}) 
+  
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
 
@@ -73,6 +75,7 @@ module.exports = app
     console.error(prettyError.render(err))
     finalHandler(req, res)(err)
   })
+
 
 if (module === require.main) {
   // Start listening only if we're the main module.

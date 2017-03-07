@@ -1,6 +1,6 @@
 'use strict'
 import React from 'react'
-import {Router, Route, IndexRedirect, IndexRoute, browserHistory} from 'react-router'
+import {Router, Route, IndexRedirect, IndexRoute, browserHistory, Link} from 'react-router'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 import {RouterToUrlQuery} from 'react-url-query'
@@ -22,17 +22,18 @@ const Root = connect(
   ) (
   ({ user, children }) =>
 
-    <div id="navbar">
-      <h1 id="title">Poppin' Potions</h1>
+    <div>
+      <div id="navbar">
+      <Link to={'/products'}><h1 id="title">Poppin' Potions</h1></Link> 
       <div id="nav">
         <nav>
           <SearchContainer/>
-          {user ? <WhoAmI /> : <div><Login /> <GoogleLogin /></div>}
+          {user ? <WhoAmI /> : <div><Login /></div>}
         </nav>
+      </div> 
+      </div> 
         {children}
       </div>
-    </div>
-
 )
 
 const onLoadProducts = function () {
