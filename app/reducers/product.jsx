@@ -5,29 +5,20 @@ export const getProduct = product => ({
 	product: product,
 })
 
-export const loadSingleProduct = function (id) {
-  return function (dispatch) {
+export const loadSingleProduct = (id)  => {
+  return (dispatch) => {
     axios.get(`/api/products/${id}`)
-    .then(function (res) {
-      console.log(res)
-      return res.data
-    })
-    .then(function (product) {
-      const action = getProduct(product); // this should dispatch to our store as set single product to be all the product fetched via this api request
-      dispatch(action);
-    })
-    .catch(function (err) {
-      console.error(err)
-    });
-  };
-};
+    .then(res => res.data)
+    .then(product => dispatch(getProduct(product))) // this should dispatch to our store as set single product to be all the product fetched via this api request)
+    .catch(console.error) 
+  }
+}
 
 export default function (state = {}, action) {
-	let newState = Object.assign({}, state)
 
 	switch (action.type) {
 		case 'GET SINGLE PRODUCT':
-			newState = action.product
+      return Object.assign({}, state, action.product)
 			break
 
 		default:
