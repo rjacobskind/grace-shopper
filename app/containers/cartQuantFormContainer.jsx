@@ -20,9 +20,11 @@ export default class extends Component{
     var handleSubmit = this.props.handleSubmit; 
     var productId = this.props.productId; 
     return (
+      <div className="form" > 
       <form onSubmit={(event) => {console.log("submitted"); 
                 this.submitHandler(event)}} >
-				<h4>Quantity</h4>
+				<h2>Add to Cart!</h2> 
+        <h4>Quantity:</h4>
         <select onChange={(event) => this.setState({quantity: event.target.value})}>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -32,6 +34,7 @@ export default class extends Component{
 				</select>
   			<button type="submit">Add to Cart</button>
 			</form>
+      </div> 
     )
   }
 }
