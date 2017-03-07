@@ -1,6 +1,6 @@
 'use strict'
 import React from 'react'
-import {Router, Route, IndexRedirect, IndexRoute, browserHistory} from 'react-router'
+import {Router, Route, IndexRedirect, IndexRoute, browserHistory, Link} from 'react-router'
 import {render} from 'react-dom'
 import {connect, Provider} from 'react-redux'
 import {RouterToUrlQuery} from 'react-url-query'
@@ -8,7 +8,9 @@ import {RouterToUrlQuery} from 'react-url-query'
 import ProductsContainer from './containers/ProductsContainer'
 import SearchContainer from './containers/SearchContainer'
 import ProductContainer from './containers/ProductContainer'
+import ShoppingCartContainer from './containers/ShoppingCartContainer'
 
+import { loadCartItems } from './reducers/shoppingCart'
 
 import store from './store'
 import Login from './components/Login'
@@ -27,6 +29,7 @@ const Root = connect(
       <div id="nav">
         <nav>
           <SearchContainer/>
+          <Link to="/cart">Shopping Cart</Link>
           {user ? <WhoAmI /> : <div><Login /> <GoogleLogin /></div>}
         </nav>
         {children}
@@ -47,6 +50,16 @@ const onLoadSingleProduct = function(route) {
   store.dispatch(action)
 }
 
+const onLoadShoppingCart = function () {
+  const action = loadCartItems()
+  store.dispatch(action)
+}
+
+const onLoadUserShoppingCart = function (userID) {
+  const action = loadCartItems(userId)
+  store.dispatch(action)
+}
+
 
 render(
   <Provider store={store}>
@@ -57,6 +70,8 @@ render(
         <Route path="/products" component={ProductsContainer} onEnter={onLoadProducts} />
         <Route path="/products/:id" component={ProductContainer} onEnter={onLoadSingleProduct} />
         <Route path="/products/category/:category" component={ProductsContainer} />
+        <Route path="/cart" component={ShoppingCartContainer} onEnter={onLoadShoppingCart} />
+        <Route path="/cart/:userId" component={ShoppingCartContainer} onEnter={onLoadUserShoppingCart} />
       </Route>
       </RouterToUrlQuery>
     </Router>
