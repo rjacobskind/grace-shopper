@@ -5,12 +5,12 @@ export const searchQuery = text => ({
     text: text
 })
 
-export default function (state = [], action){
-    const newState = Object.assign({}, state)
+export default function (state = {}, action){
+    var newState = Object.assign({}, state)
 
     switch(action.type){
         case 'SEARCH_QUERY':
-            newState = action.text
+            newState.search = action.text
             break
 
             default:

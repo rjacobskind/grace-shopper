@@ -5,25 +5,17 @@ export const getProducts = products => ({
 	products: products,
 })
 
-export const loadProducts = function () {
-  return function (dispatch) {
+export const loadProducts = () => {
+  return (dispatch) => {
     fetch('/api/products')
-    .then(function (res) {
-			// console.log('products', res)
-      return res.json();
-    })
-    .then(function (products) {
-      const action = getProducts(products); // this should dispatch to our store as set products to be all the products fetched via this api request
-      dispatch(action);
-    })
-    .catch(function (err) {
-      console.error(err)
-    });
-  };
-};
+    .then((res) =>  res.json())
+    .then((products) => dispatch(getProducts(products))) // this should dispatch to our store as set products to be all the products fetched via this api request
+    .catch(console.error)
+  }
+}
 
 export default function (state = [], action) {
-	let newState = Object.assign({}, state)
+	let newState = state.slice()
 
 	switch (action.type) {
 		case 'GET PRODUCTS':
