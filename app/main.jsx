@@ -8,6 +8,7 @@ import {RouterToUrlQuery} from 'react-url-query'
 import ProductsContainer from './containers/ProductsContainer'
 import SearchContainer from './containers/SearchContainer'
 import ProductContainer from './containers/ProductContainer'
+import ShoppingCartContainer from './containers/ShoppingCartContainer'
 
 
 import store from './store'
@@ -62,6 +63,7 @@ render(
         <Route path="/products" component={ProductsContainer} onEnter={onLoadProducts} />
         <Route path="/products/:id" component={ProductContainer} onEnter={onLoadSingleProduct} />
         <Route path="/products/category/:category" component={ProductsContainer} />
+        <Route path="/cart" component={ShoppingCartContainer} />
       </Route>
       </RouterToUrlQuery>
     </Router>
