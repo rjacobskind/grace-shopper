@@ -42,5 +42,23 @@ module.exports = require('express').Router()
 
 			.catch(next)
 	})
-
+	.get('/', (req, res, next) => {
+		if (req.params.userId) {
+			CartProduct.findAll({
+				where: {
+					user_id: req.params.userId,
+				},
+			})
+			.then(shoppingCart => res.send(shoppingCart))
+			.catch(next)
+		} else {
+			CartProduct.findAll({
+				where: {
+					sessionId: req.session.sessionId,
+				},
+			})
+			.then(shoppingCart => res.send(shoppingCart))
+			.catch(next)
+		}
+	})
 
