@@ -24,18 +24,20 @@ const Root = connect(
   ) (
   ({ user, children }) =>
 
-    <div id="navbar">
-      <h1 id="title">Poppin' Potions</h1>
+    <div>
+      <div id="navbar">
+      <Link to={'/products'}><h1 id="title">Poppin' Potions</h1></Link> 
       <div id="nav">
         <nav>
           <SearchContainer/>
+
           <Link to="/cart">Shopping Cart</Link>
-          {user ? <WhoAmI /> : <div><Login /> <GoogleLogin /></div>}
+          {user ? <WhoAmI /> : <div><Login /></div>}
         </nav>
+      </div> 
+      </div> 
         {children}
       </div>
-    </div>
-
 )
 
 const onLoadProducts = function () {

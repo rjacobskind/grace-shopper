@@ -41,16 +41,16 @@ class Products extends Component {
 					</label>
 				</form>
 			</div>
-			<div id="products">
+			<div className="products">
 				<ul>
 					{props.products ? props.products.map(function(product){
 						return (
-							<ul key={product.id}>
+							<ul className="product" key={product.id}>
 								<Link to={`/products/${product.id}`}>
 								<img src={product.image} height="250"/>
-									<li>{ product.name }</li>
-									<li>{ product.description }</li>
-									<li>${Math.round(product.price / 100).toFixed(2)}</li>
+									<li className="product-name">{ product.name }</li>
+									<li className="description">{ product.description }</li>
+									<li className="price">${Math.round(product.price / 100).toFixed(2)}</li>
 								</Link>
 							</ul>
 						)
